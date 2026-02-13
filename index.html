@@ -852,8 +852,11 @@
             <h2>Solicită Informații</h2>
             
             <div class="contact-form">
-                <form id="contact-form" action="https://formspree.io/f/xnqkvnzy" method="POST">
+                <form action="https://formsubmit.co/9cb0bdb59648af6290a2d8ac5b7fc67d" method="POST">
                     <input type="hidden" name="_subject" value="Solicitare noua - Hale Tomesti">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_next" value="https://haletomesti.github.io/hale-tomesti/#contact">
+                    
                     <div class="form-group">
                         <label for="name">Nume și Prenume *</label>
                         <input type="text" id="name" name="name" placeholder="Ex: Ion Popescu" required>
@@ -886,30 +889,7 @@
                     
                     <button type="submit" class="btn-submit">Trimite Solicitarea</button>
                 </form>
-                <script>
-                    document.getElementById('contact-form').addEventListener('submit', function(e) {
-                        e.preventDefault();
-                        var form = this;
-                        var data = new FormData(form);
-                        
-                        fetch(form.action, {
-                            method: 'POST',
-                            body: data,
-                            headers: {
-                                'Accept': 'application/json'
-                            }
-                        }).then(function(response) {
-                            if (response.ok) {
-                                form.style.display = 'none';
-                                document.getElementById('form-success').style.display = 'block';
-                            } else {
-                                alert('A apărut o eroare. Vă rugăm încercați din nou.');
-                            }
-                        }).catch(function(error) {
-                            alert('A apărut o eroare. Vă rugăm încercați din nou.');
-                        });
-                    });
-                </script>
+                
                 <div id="form-success" style="display:none; text-align:center; padding:30px;">
                     <h3 style="color:#1e3a5f; margin-bottom:15px;">✅ Mesaj trimis cu succes!</h3>
                     <p>Vă contactăm în cel mai scurt timp.</p>
