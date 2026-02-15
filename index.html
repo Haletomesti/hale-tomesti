@@ -4,324 +4,486 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
-    <title>Hale Industriale de Vânzare 225mp + 375mp - Tomești, Iași | CD TOPMED SRL</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <meta name="description" content="Hale industriale de vanzare in Tomesti, Iasi. CD TOPMED SRL. Suprafete 225mp si 375mp.">
+    <title>Hale Industriale de Vanzare | Tomesti, Iasi | CD TOPMED SRL</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary: #1a365d;
+            --primary-light: #2c5282;
+            --accent: #d69e2e;
+            --accent-hover: #b7791f;
+            --text: #2d3748;
+            --text-light: #718096;
+            --bg: #ffffff;
+            --bg-alt: #f7fafc;
+            --border: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
         
+        html {
+            scroll-behavior: smooth;
+        }
+        
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.7;
-            color: #333;
-            background: #ffffff;
+            color: var(--text);
+            line-height: 1.6;
+            background: var(--bg);
         }
         
-        .container {
-            max-width: 1200px;
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            box-shadow: var(--shadow);
+        }
+        
+        .nav-container {
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         
-        /* Hero Section - Professional Real Estate Style */
-        .hero {
-            background: linear-gradient(135deg, rgba(30,58,95,0.95) 0%, rgba(45,90,135,0.9) 100%),
-                        url('poze/hala1-exterior.jpg') center/cover no-repeat;
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        .nav-cta {
+            background: var(--accent);
             color: white;
-            padding: 100px 0 120px;
-            text-align: center;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        
+        .nav-cta:hover {
+            background: var(--accent-hover);
+            transform: translateY(-1px);
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, rgba(26, 54, 93, 0.9) 0%, rgba(44, 82, 130, 0.85) 100%),
+                        url('poze/hala1-exterior.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
             position: relative;
-            overflow: hidden;
         }
         
         .hero-content {
-            position: relative;
-            z-index: 1;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            color: white;
+            width: 100%;
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5rem;
         }
         
         .hero h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 3.5em;
+            font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 700;
-            margin-bottom: 25px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            letter-spacing: -1px;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            max-width: 700px;
         }
         
-        .hero .subtitle {
-            font-size: 1.2em;
-            margin-bottom: 20px;
-            opacity: 0.95;
-            font-weight: 300;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+        .hero-subtitle {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            max-width: 600px;
         }
         
-        .hale-badge {
-            display: inline-block;
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            padding: 20px 35px;
-            border-radius: 8px;
-            margin: 15px;
-            border: 1px solid rgba(255,255,255,0.2);
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            margin-bottom: 3rem;
         }
         
-        .hale-badge strong {
-            display: block;
-            font-size: 1.4em;
+        .hero-stat {
+            text-align: center;
+        }
+        
+        .hero-stat-value {
             font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
         }
         
-        /* Halls Section */
-        .halls-section {
-            padding: 80px 0;
-            background: #f8f9fa;
+        .hero-stat-label {
+            font-size: 0.875rem;
+            opacity: 0.8;
+        }
+        
+        .hero-cta-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 6rem 2rem;
+        }
+        
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+        
+        .section-label {
+            color: var(--accent);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
         }
         
         .section-title {
-            text-align: center;
             font-family: 'Playfair Display', serif;
-            font-size: 2.8em;
-            color: #1e3a5f;
-            margin-bottom: 60px;
-            font-weight: 600;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--primary);
+            margin-bottom: 1rem;
         }
         
-        .halls-grid {
+        .section-subtitle {
+            color: var(--text-light);
+            font-size: 1.125rem;
+        }
+        
+        /* Properties Grid */
+        .properties {
+            background: var(--bg-alt);
+        }
+        
+        .properties-grid {
+            max-width: 1280px;
+            margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 2rem;
         }
         
-        .hall-card {
+        .property-card {
             background: white;
-            border-radius: 12px;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            transition: all 0.4s ease;
-            border: 1px solid #e9ecef;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
         }
         
-        .hall-card:hover {
+        .property-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+            box-shadow: var(--shadow-lg);
         }
         
-        .hall-image {
+        .property-image {
+            position: relative;
             height: 280px;
             overflow: hidden;
-            position: relative;
         }
         
-        .hall-image img {
+        .property-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.6s ease;
+            transition: transform 0.5s ease;
         }
         
-        .hall-card:hover .hall-image img {
-            transform: scale(1.08);
+        .property-card:hover .property-image img {
+            transform: scale(1.05);
         }
         
-        .hall-content {
-            padding: 35px;
-        }
-        
-        .hall-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-        
-        .hall-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.9em;
-            color: #1e3a5f;
-            font-weight: 600;
-        }
-        
-        .hall-price {
-            background: #c9a227;
+        .property-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: var(--accent);
             color: white;
-            padding: 12px 25px;
-            border-radius: 6px;
-            font-size: 1.3em;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
             font-weight: 600;
-            white-space: nowrap;
-            letter-spacing: 0.5px;
         }
         
-        .hall-price small {
-            font-size: 0.65em;
-            opacity: 0.9;
+        .property-price {
+            position: absolute;
+            bottom: 1rem;
+            right: 1rem;
+            background: white;
+            color: var(--primary);
+            padding: 0.75rem 1.25rem;
+            border-radius: 8px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            box-shadow: var(--shadow);
+        }
+        
+        .property-price small {
             display: block;
-            font-weight: 400;
+            font-size: 0.75rem;
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
         }
         
-        .hall-specs {
+        .property-content {
+            padding: 1.5rem;
+        }
+        
+        .property-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .property-location {
+            color: var(--text-light);
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .property-features {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            margin-bottom: 25px;
+            gap: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
         }
         
-        .spec-item {
-            background: #f8f9fa;
-            padding: 18px;
+        .property-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+        }
+        
+        .property-feature-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--bg-alt);
             border-radius: 8px;
-            text-align: center;
-            border-left: 3px solid #c9a227;
-        }
-        
-        .spec-item .label {
-            font-size: 0.85em;
-            color: #6c757d;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        
-        .spec-item .value {
-            font-size: 1.25em;
-            font-weight: 600;
-            color: #1e3a5f;
-        }
-        
-        .hall-utilities {
-            margin: 25px 0;
-        }
-        
-        .hall-utilities h4 {
-            color: #1e3a5f;
-            margin-bottom: 15px;
-            font-family: 'Playfair Display', serif;
-            font-size: 1.2em;
-        }
-        
-        .utilities-list {
             display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        
-        .utility-tag {
-            background: #1e3a5f;
-            color: white;
-            padding: 8px 18px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            font-weight: 500;
-        }
-        
-        .utility-tag.partial {
-            background: #6c757d;
-        }
-        
-        /* Combined Offer Section */
-        .combined-section {
-            background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%);
-            color: white;
-            padding: 80px 0;
-            text-align: center;
-        }
-        
-        .combined-section h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.8em;
-            margin-bottom: 25px;
-            font-weight: 600;
-        }
-        
-        .combined-price {
-            font-size: 3.2em;
-            font-weight: 700;
-            color: #c9a227;
-            margin: 25px 0;
-            font-family: 'Playfair Display', serif;
-        }
-        
-        .combined-price small {
-            font-size: 0.35em;
-            color: rgba(255,255,255,0.8);
-            display: block;
-            margin-top: 10px;
-            font-family: 'Inter', sans-serif;
-            font-weight: 400;
-        }
-        
-        .combined-benefits {
-            display: flex;
+            align-items: center;
             justify-content: center;
-            gap: 50px;
-            flex-wrap: wrap;
-            margin: 40px 0;
+            color: var(--accent);
         }
         
-        .benefit {
-            font-size: 1.15em;
-            font-weight: 400;
-        }
-        
-        .benefit::before {
-            content: '✓';
-            color: #c9a227;
-            font-weight: bold;
-            margin-right: 12px;
-        }
-        
-        /* Location */
-        .location {
-            background: #ffffff;
-            padding: 80px 0;
-        }
-        
-        .location h2 {
+        /* Package Section */
+        .package {
+            background: var(--primary);
+            color: white;
             text-align: center;
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5em;
-            margin-bottom: 50px;
-            color: #1e3a5f;
-            font-weight: 600;
         }
         
+        .package .section-title {
+            color: white;
+        }
+        
+        .package-card {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 24px;
+            padding: 3rem;
+        }
+        
+        .package-price {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin: 1.5rem 0;
+        }
+        
+        .package-price small {
+            display: block;
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .package-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+            text-align: left;
+        }
+        
+        .package-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .package-feature::before {
+            content: '✓';
+            width: 24px;
+            height: 24px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.875rem;
+            flex-shrink: 0;
+        }
+        
+        .package-savings {
+            background: var(--accent);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+        
+        /* Location Section */
         .location-grid {
+            max-width: 1280px;
+            margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            gap: 2rem;
         }
         
         .location-card {
             background: white;
-            padding: 35px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-            border: 1px solid #e9ecef;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
             transition: all 0.3s ease;
         }
         
         .location-card:hover {
-            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-            transform: translateY(-5px);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .location-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--bg-alt);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
         }
         
         .location-card h3 {
-            color: #1e3a5f;
-            margin-bottom: 20px;
-            font-size: 1.3em;
             font-family: 'Playfair Display', serif;
-            border-bottom: 2px solid #c9a227;
-            padding-bottom: 10px;
-            display: inline-block;
+            font-size: 1.25rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
         }
         
         .location-card ul {
@@ -329,415 +491,374 @@
         }
         
         .location-card li {
-            padding: 10px 0;
-            padding-left: 28px;
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
             position: relative;
-            color: #555;
+            color: var(--text-light);
         }
         
         .location-card li::before {
             content: '→';
             position: absolute;
             left: 0;
-            color: #c9a227;
-            font-weight: bold;
+            color: var(--accent);
         }
         
         /* Gallery */
         .gallery {
-            padding: 80px 0;
-            background: #f8f9fa;
-        }
-        
-        .gallery h2 {
-            text-align: center;
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5em;
-            margin-bottom: 50px;
-            color: #1e3a5f;
-            font-weight: 600;
+            background: var(--bg-alt);
         }
         
         .gallery-grid {
+            max-width: 1280px;
+            margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
         }
         
         .gallery-item {
-            height: 280px;
+            position: relative;
+            aspect-ratio: 4/3;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: all 0.4s ease;
-        }
-        
-        .gallery-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+            cursor: pointer;
+            box-shadow: var(--shadow);
         }
         
         .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.6s ease;
+            transition: transform 0.5s ease;
         }
         
         .gallery-item:hover img {
             transform: scale(1.1);
         }
         
-        /* CTA Section */
-        .cta {
-            background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%);
-            padding: 80px 0;
-            text-align: center;
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            display: flex;
+            align-items: flex-end;
+            padding: 1.5rem;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-caption {
             color: white;
+            font-weight: 500;
         }
         
-        .cta h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5em;
-            margin-bottom: 35px;
-            font-weight: 600;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 18px 45px;
-            margin: 12px;
-            font-size: 1.1em;
-            text-decoration: none;
-            border-radius: 6px;
-            transition: all 0.3s ease;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-        }
-        
-        .btn-white {
-            background: #c9a227;
-            color: white;
-            border: 2px solid #c9a227;
-        }
-        
-        .btn-white:hover {
-            background: white;
-            color: #1e3a5f;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-        
-        .btn-outline {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-        
-        .btn-outline:hover {
-            background: white;
-            color: #1e3a5f;
-            transform: translateY(-3px);
-        }
-        
-        /* Contact Form */
+        /* Contact Section */
         .contact {
-            padding: 80px 0;
-            background: #ffffff;
-        }
-        
-        .contact h2 {
             text-align: center;
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5em;
-            margin-bottom: 50px;
-            color: #1e3a5f;
-            font-weight: 600;
         }
         
-        .contact-form {
+        .contact-card {
             max-width: 600px;
             margin: 0 auto;
             background: white;
-            padding: 50px;
+            padding: 3rem;
+            border-radius: 24px;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .contact-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 1.25rem;
             border-radius: 12px;
-            box-shadow: 0 10px 50px rgba(0,0,0,0.08);
-            border: 1px solid #e9ecef;
-        }
-        
-        .form-group {
-            margin-bottom: 25px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 10px;
+            text-decoration: none;
             font-weight: 600;
-            color: #1e3a5f;
-            font-size: 0.95em;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 16px;
-            border: 2px solid #e9ecef;
-            border-radius: 8px;
-            font-size: 1em;
             transition: all 0.3s ease;
-            font-family: 'Inter', sans-serif;
         }
         
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: #c9a227;
-            box-shadow: 0 0 0 4px rgba(201, 162, 39, 0.1);
-        }
-        
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-        
-        .btn-submit {
-            width: 100%;
-            padding: 20px;
-            background: linear-gradient(135deg, #c9a227 0%, #b8941f 100%);
+        .contact-btn-phone {
+            background: var(--primary);
             color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.15em;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
         }
         
-        .btn-submit:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(201, 162, 39, 0.4);
+        .contact-btn-phone:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+        }
+        
+        .contact-btn-email {
+            background: var(--bg-alt);
+            color: var(--primary);
+        }
+        
+        .contact-btn-email:hover {
+            background: var(--border);
+        }
+        
+        .contact-btn-whatsapp {
+            background: #25D366;
+            color: white;
+        }
+        
+        .contact-btn-whatsapp:hover {
+            background: #128C7E;
+            transform: translateY(-2px);
+        }
+        
+        .contact-hours {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-light);
         }
         
         /* Footer */
         footer {
-            background: #1e3a5f;
+            background: var(--primary);
             color: white;
-            padding: 60px 0;
+            padding: 3rem 2rem;
             text-align: center;
         }
         
         .footer-logo {
             font-family: 'Playfair Display', serif;
-            font-size: 2em;
-            font-weight: 600;
-            margin-bottom: 25px;
-            color: #c9a227;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
         }
         
         .footer-contact {
-            font-size: 1.15em;
-            margin-bottom: 20px;
-            opacity: 0.9;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
         }
         
         .footer-contact a {
-            color: #c9a227;
+            color: var(--accent);
             text-decoration: none;
-            transition: color 0.3s;
         }
         
         .footer-contact a:hover {
+            text-decoration: underline;
+        }
+        
+        .footer-copy {
+            opacity: 0.6;
+            font-size: 0.875rem;
+        }
+        
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+        
+        .lightbox.active {
+            display: flex;
+        }
+        
+        .lightbox img {
+            max-width: 100%;
+            max-height: 90vh;
+            border-radius: 8px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
             color: white;
+            font-size: 3rem;
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background 0.2s;
+        }
+        
+        .lightbox-close:hover {
+            background: rgba(255, 255, 255, 0.1);
         }
         
         /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.2em;
+            .nav-links {
+                display: none;
             }
             
-            .hero .subtitle {
-                font-size: 1em;
+            .hero-stats {
+                gap: 1.5rem;
             }
             
-            .halls-grid {
+            .hero-stat-value {
+                font-size: 1.75rem;
+            }
+            
+            .properties-grid {
                 grid-template-columns: 1fr;
             }
             
-            .hall-card {
-                margin: 0 -10px;
+            .package-price {
+                font-size: 2.5rem;
             }
             
-            .hall-header {
-                flex-direction: column;
-                text-align: center;
+            section {
+                padding: 4rem 1.5rem;
             }
-            
-            .hall-price {
-                font-size: 1.1em;
-            }
-            
-            .combined-price {
-                font-size: 2em;
-            }
-            
-            .btn {
-                display: block;
-                margin: 10px auto;
-                width: 85%;
-            }
-            
-            .contact-form {
-                padding: 30px 20px;
-            }
-        }
-        
-        /* WhatsApp Float */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #25D366;
-            color: white;
-            width: 65px;
-            height: 65px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 35px;
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
-            text-decoration: none;
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-        
-        .whatsapp-float:hover {
-            transform: scale(1.1) rotate(10deg);
         }
     </style>
 </head>
 <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">CD TOPMED</a>
+            <ul class="nav-links">
+                <li><a href="#proprietati">Proprietati</a></li>
+                <li><a href="#pachet">Pachet</a></li>
+                <li><a href="#locatie">Locatie</a></li>
+                <li><a href="#galerie">Galerie</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="tel:0770508549" class="nav-cta">0770 508 549</a>
+        </div>
+    </nav>
+
     <!-- Hero Section -->
     <section class="hero">
-        <div class="container hero-content">
-            <h1>Hale Industriale de Vânzare</h1>
-            <p class="subtitle">Două hale lipite în Tomești, Iași - Oportunitate de Investiție</p>
+        <div class="hero-content">
+            <span class="hero-badge">Disponibil Imediat</span>
+            <h1>Hale Industriale Moderne in Tomesti, Iasi</h1>
+            <p class="hero-subtitle">Doua hale lipite cu suprafete de 225mp si 375mp. Constructie 2025, utilitati complete, acces TIR.</p>
             
-            <div class="hale-badge">
-                <strong>Hala 1</strong>
-                225 m²
-            </div>
-            <div class="hale-badge">
-                <strong>Hala 2</strong>
-                375 m²
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="hero-stat-value">600m²</div>
+                    <div class="hero-stat-label">Suprafata Totala</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-value">2025</div>
+                    <div class="hero-stat-label">An Constructie</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-value">90kW</div>
+                    <div class="hero-stat-label">Putere Electrica</div>
+                </div>
             </div>
             
-            <p class="subtitle" style="margin-top: 20px;">✓ Construcție 2025 | ✓ Acces TIR | ✓ Utilități Complete</p>
+            <div class="hero-cta-group">
+                <a href="#proprietati" class="btn btn-primary">Vezi Proprietatile</a>
+                <a href="tel:0770508549" class="btn btn-secondary">Sună Acum</a>
+            </div>
         </div>
     </section>
 
-    <!-- Halls Section -->
-    <section class="halls-section">
-        <div class="container">
-            <h2 class="section-title">Ofertă Individuală</h2>
-            
-            <div class="halls-grid">
-                <!-- Hall 1: 225m² - 130.000 EUR + TVA -->
-                <div class="hall-card">
-                    <div class="hall-image">
-                        <img src="poze/hala1-exterior.jpg" alt="Hala 1 - 225 m² - Exterior">
+    <!-- Properties Section -->
+    <section class="properties" id="proprietati">
+        <div class="section-header">
+            <span class="section-label">Proprietati</span>
+            <h2 class="section-title">Oferte Individuale</h2>
+            <p class="section-subtitle">Alege hală care se potriveste nevoilor tale sau achizitionează ambele pentru o afacere în dezvoltare</p>
+        </div>
+        
+        <div class="properties-grid">
+            <!-- Property 1 -->
+            <div class="property-card">
+                <div class="property-image">
+                    <img src="poze/hala1-exterior.jpg" alt="Hala 1 - Exterior">
+                    <span class="property-badge">Hala 1</span>
+                    <div class="property-price">
+                        130.000 €
+                        <small>+ TVA</small>
+                    </div>
+                </div>
+                
+                <div class="property-content">
+                    <h3 class="property-title">Hala Industriala 225m²</h3>
+                    <div class="property-location">
+                        📍 Tomesti, Iasi
                     </div>
                     
-                    <div class="hall-content">
-                        <div class="hall-header">
-                            <h3 class="hall-title">Hala 1</h3>
-                            <div class="hall-price">
-                                130.000 €
-                                <small>+ TVA</small>
-                            </div>
+                    <div class="property-features">
+                        <div class="property-feature">
+                            <div class="property-feature-icon">📐</div>
+                            <span>225 m²</span>
                         </div>
-                        
-                        <div class="hall-specs">
-                            <div class="spec-item">
-                                <div class="label">Suprafață</div>
-                                <div class="value">225 m²</div>
-                            </div>
-                            <div class="spec-item">
-                                <div class="label">Înălțime</div>
-                                <div class="value">4-5 m</div>
-                            </div>
-                            <div class="spec-item">
-                                <div class="label">Structură</div>
-                                <div class="value">Metalică</div>
-                            </div>
-                            <div class="spec-item">
-                                <div class="label">An</div>
-                                <div class="value">2025</div>
-                            </div>
+                        <div class="property-feature">
+                            <div class="property-feature-icon">📏</div>
+                            <span>4-5 m inaltime</span>
                         </div>
-                        
-                        <div class="hall-utilities">
-                            <h4>Utilități</h4>
-                            <div class="utilities-list">
-                                <span class="utility-tag">Curent 90kW</span>
-                                <span class="utility-tag">Apă</span>
-                                <span class="utility-tag partial">Canalizare (20m)</span>
-                                <span class="utility-tag partial">Gaz (proiect)</span>
-                            </div>
+                        <div class="property-feature">
+                            <div class="property-feature-icon">⚡</div>
+                            <span>Curent 90kW</span>
+                        </div>
+                        <div class="property-feature">
+                            <div class="property-feature-icon">💧</div>
+                            <span>Apa + Canalizare</span>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Hall 2: 375m² - 180.000 EUR + TVA -->
-                <div class="hall-card">
-                    <div class="hall-image">
-                        <img src="poze/hala2-exterior.jpg" alt="Hala 2 - 375 m² - Exterior">
+            <!-- Property 2 -->
+            <div class="property-card">
+                <div class="property-image">
+                    <img src="poze/hala2-exterior.jpg" alt="Hala 2 - Exterior">
+                    <span class="property-badge">Hala 2</span>
+                    <div class="property-price">
+                        180.000 €
+                        <small>+ TVA</small>
+                    </div>
+                </div>
+                
+                <div class="property-content">
+                    <h3 class="property-title">Hala Industriala 375m²</h3>
+                    <div class="property-location">
+                        📍 Tomesti, Iasi
                     </div>
                     
-                    <div class="hall-content">
-                        <div class="hall-header">
-                            <h3 class="hall-title">Hala 2</h3>
-                            <div class="hall-price">
-                                180.000 €
-                                <small>+ TVA</small>
-                            </div>
+                    <div class="property-features">
+                        <div class="property-feature">
+                            <div class="property-feature-icon">📐</div>
+                            <span>375 m²</span>
                         </div>
-                        
-                        <div class="hall-specs">
-                            <div class="spec-item">
-                                <div class="label">Suprafață</div>
-                                <div class="value">375 m²</div>
-                            </div>
-                            <div class="spec-item">
-                                <div class="label">Înălțime</div>
-                                <div class="value">4-5 m</div>
-                            </div>
-                            <div class="spec-item">
-                                <div class="label">Structură</div>
-                                <div class="value">Metalică</div>
-                            </div>
-                            <div class="spec-item">
-                                <div class="label">An</div>
-                                <div class="value">2025</div>
-                            </div>
+                        <div class="property-feature">
+                            <div class="property-feature-icon">📏</div>
+                            <span>4-5 m inaltime</span>
                         </div>
-                        
-                        <div class="hall-utilities">
-                            <h4>Utilități</h4>
-                            <div class="utilities-list">
-                                <span class="utility-tag">Curent 90kW</span>
-                                <span class="utility-tag">Apă</span>
-                                <span class="utility-tag partial">Canalizare (20m)</span>
-                                <span class="utility-tag partial">Gaz (proiect)</span>
-                            </div>
+                        <div class="property-feature">
+                            <div class="property-feature-icon">⚡</div>
+                            <span>Curent 90kW</span>
+                        </div>
+                        <div class="property-feature">
+                            <div class="property-feature-icon">💧</div>
+                            <span>Apa + Canalizare</span>
                         </div>
                     </div>
                 </div>
@@ -745,163 +866,209 @@
         </div>
     </section>
 
-    <!-- Combined Offer -->
-    <section class="combined-section">
-        <div class="container">
-            <h2>Ofertă Pachet Complet</h2>
+    <!-- Package Section -->
+    <section class="package" id="pachet">
+        <div class="section-header">
+            <span class="section-label">Oferta Speciala</span>
+            <h2 class="section-title">Pachet Complet</h2>
+        </div>
+        
+        <div class="package-card">
+            <p style="opacity: 0.8; margin-bottom: 1rem;">Ambele hale impreuna cu teren de 1.150 m²</p>
             
-            <p style="font-size: 1.3em; opacity: 0.9;">Ambele hale împreună - 600 m² utili + 1.150 m² teren</p>
-            
-            <div class="combined-price">
+            <div class="package-price">
                 290.000 €
-                <small>+ TVA (130.000 € + 180.000 €)</small>
+                <small>+ TVA (130.000 € + 160.000 €)</small>
             </div>
             
-            <div class="combined-benefits">
-                <div class="benefit">Spațiu generos pentru producție</div>
-                <div class="benefit">Posibilitate compartimentare</div>
-                <div class="benefit">Un singur set acte</div>
-                <div class="benefit">Preț/mp mai avantajos</div>
+            <div class="package-features">
+                <div class="package-feature">600 m² suprafata construita</div>
+                <div class="package-feature">1.150 m² teren</div>
+                <div class="package-feature">Spatiu generos pentru productie</div>
+                <div class="package-feature">Posibilitate compartimentare</div>
+                <div class="package-feature">Un singur set acte</div>
+                <div class="package-feature">Acces TIR si autoutilitare</div>
             </div>
             
-            <p style="margin-top: 30px; font-size: 1.1em;">Economisești achiziționând pachetul complet!</p>
-        </div>
-    </section>
-
-    <!-- Location -->
-    <section class="location">
-        <div class="container">
-            <h2>Locație Strategică</h2>
+            <div class="package-savings">Economisesti 20.000 €</div>
             
-            <div class="location-grid">
-                <div class="location-card">
-                    <h3>Adresă</h3>
-                    <ul>
-                        <li>Tomești, Iași</li>
-                        <li>Lângă Depozitul Fiterman Farma</li>
-                        <li>Zonă industrială în dezvoltare</li>
-                    </ul>
-                </div>
-                
-                <div class="location-card">
-                    <h3>Accesibilitate</h3>
-                    <ul>
-                        <li>700m de drumul principal</li>
-                        <li>30m de drum betonat</li>
-                        <li>Acces TIR și autoutilitare</li>
-                        <li>Parcare în curte</li>
-                    </ul>
-                </div>
-                
-                <div class="location-card">
-                    <h3>Puncte de Interes</h3>
-                    <ul>
-                        <li>2 km de Sala Sporturilor</li>
-                        <li>10 km de Podu Roș (centru)</li>
-                        <li>Apropiere centură est Iași</li>
-                        <li>Acces rapid DN24 și A8</li>
-                    </ul>
-                </div>
+            <div style="margin-top: 2rem;">
+                <a href="tel:0770508549" class="btn btn-primary" style="font-size: 1.125rem; padding: 1.25rem 2.5rem;">Suna pentru Detalii</a>
             </div>
         </div>
     </section>
 
-    <!-- Gallery -->
-    <section class="gallery">
-        <div class="container">
-            <h2>Galerie Foto</h2>
-            
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="poze/hala1-exterior.jpg" alt="Hala 1 Exterior">
+    <!-- Location Section -->
+    <section class="location" id="locatie">
+        <div class="section-header">
+            <span class="section-label">Locatie</span>
+            <h2 class="section-title">Zona Strategica</h2>
+            <p class="section-subtitle">Situat in zona industriala a Iasului, cu acces facil la drumurile principale</p>
+        </div>
+        
+        <div class="location-grid">
+            <div class="location-card">
+                <div class="location-icon">📍</div>
+                <h3>Adresa</h3>
+                <ul>
+                    <li>Tomesti, Iasi</li>
+                    <li>Langa Depozitul Fiterman Farma</li>
+                    <li>Zona industriala in dezvoltare</li>
+                </ul>
+            </div>
+
+            <div class="location-card">
+                <div class="location-icon">🚗</div>
+                <h3>Accesibilitate</h3>
+                <ul>
+                    <li>700m de drumul principal</li>
+                    <li>30m de drum betonat</li>
+                    <li>Acces TIR si autoutilitare</li>
+                    <li>Parcare in curte</li>
+                </ul>
+            </div>
+
+            <div class="location-card">
+                <div class="location-icon">🎯</div>
+                <h3>Puncte de Interes</h3>
+                <ul>
+                    <li>2 km de Sala Sporturilor</li>
+                    <li>10 km de centrul Iasului</li>
+                    <li>Apropiere centura est Iasi</li>
+                    <li>Acces rapid DN24 si A8</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="galerie">
+        <div class="section-header">
+            <span class="section-label">Galerie</span>
+            <h2 class="section-title">Vezi Halele</h2>
+        </div>
+        
+        <div class="gallery-grid">
+            <div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)">
+                <img src="poze/hala1-exterior.jpg" alt="Hala 1 Exterior">
+                <div class="gallery-overlay">
+                    <span class="gallery-caption">Hala 1 - Exterior</span>
                 </div>
-                
-                <div class="gallery-item">
-                    <img src="poze/hala1-interior.jpg" alt="Hala 1 Interior">
+            </div>
+
+            <div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)">
+                <img src="poze/hala1-interior.jpg" alt="Hala 1 Interior">
+                <div class="gallery-overlay">
+                    <span class="gallery-caption">Hala 1 - Interior</span>
                 </div>
-                
-                <div class="gallery-item">
-                    <img src="poze/hala1-lateral.jpg" alt="Hala 1 Lateral">
+            </div>
+
+            <div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)">
+                <img src="poze/hala1-lateral.jpg" alt="Hala 1 Lateral">
+                <div class="gallery-overlay">
+                    <span class="gallery-caption">Hala 1 - Vedere Lateral</span>
                 </div>
-                
-                <div class="gallery-item">
-                    <img src="poze/hala2-exterior.jpg" alt="Hala 2 Exterior">
+            </div>
+
+            <div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)">
+                <img src="poze/hala2-exterior.jpg" alt="Hala 2 Exterior">
+                <div class="gallery-overlay">
+                    <span class="gallery-caption">Hala 2 - Exterior</span>
                 </div>
-                
-                <div class="gallery-item">
-                    <img src="poze/hala2-interior1.jpg" alt="Hala 2 Interior">
+            </div>
+
+            <div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)">
+                <img src="poze/hala2-interior1.jpg" alt="Hala 2 Interior">
+                <div class="gallery-overlay">
+                    <span class="gallery-caption">Hala 2 - Interior</span>
                 </div>
-                
-                <div class="gallery-item">
-                    <img src="poze/hala2-interior2.jpg" alt="Hala 2 Interior - Structură">
+            </div>
+
+            <div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)">
+                <img src="poze/hala2-interior2.jpg" alt="Hala 2 Structura">
+                <div class="gallery-overlay">
+                    <span class="gallery-caption">Hala 2 - Structura</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA -->
-    <section class="cta">
-        <div class="container">
-            <h2>Contactează-ne Acum</h2>
-            
-            <a href="tel:0770508549" class="btn btn-white">Sună: 0770 508 549</a>
-            <a href="#contact" class="btn btn-outline">Trimite Mesaj</a>
-        </div>
-    </section>
-
-    <!-- Contact Form -->
+    <!-- Contact Section -->
     <section class="contact" id="contact">
-        <div class="container">
-            <h2>Solicită Informații</h2>
+        <div class="section-header">
+            <span class="section-label">Contact</span>
+            <h2 class="section-title">Hai sa Vorbim</h2>
+            <p class="section-subtitle">Suntem disponibili pentru vizionari si detalii suplimentare</p>
+        </div>
+        
+        <div class="contact-card">
+            <div class="contact-methods">
+                <a href="tel:0770508549" class="contact-btn contact-btn-phone">
+                    📞 Suna: 0770 508 549
+                </a>
+                
+                <a href="mailto:haletomesti@gmail.com" class="contact-btn contact-btn-email">
+                    ✉️ Email: haletomesti@gmail.com
+                </a>
+                <a href="https://wa.me/40770508549" class="contact-btn contact-btn-whatsapp">
+                    💬 WhatsApp
+                </a>
+            </div>
             
-            <div class="contact-form">
-                <div style="text-align: center; padding: 40px;">
-                    <h3 style="color: #1e3a5f; margin-bottom: 30px; font-family: 'Playfair Display', serif;">Contactează-ne direct</h3>
-                    
-                    <div style="margin-bottom: 30px;">
-                        <a href="tel:0770508549" class="btn btn-white" style="display: inline-block; margin: 10px; padding: 20px 40px; font-size: 1.2em;">
-                            📞 Sună: 0770 508 549
-                        </a>
-                    </div>
-                    
-                    <div style="margin-bottom: 30px;">
-                        <a href="mailto:haletomesti@gmail.com" class="btn btn-outline" style="display: inline-block; margin: 10px; padding: 20px 40px; font-size: 1.2em;">
-                            ✉️ Email: haletomesti@gmail.com
-                        </a>
-                    </div>
-                    
-                    <div>
-                        <a href="https://wa.me/40770508549" class="btn btn-white" style="display: inline-block; margin: 10px; padding: 20px 40px; font-size: 1.2em; background: #25D366; border-color: #25D366;">
-                            💬 WhatsApp
-                        </a>
-                    </div>
-                    
-                    <p style="margin-top: 40px; color: #666; font-size: 1.1em;">
-                        Disponibili de luni până sâmbătă, 08:00 - 18:00
-                    </p>
-                </div>
+            <div class="contact-hours">
+                <strong>Program:</strong> Luni - Sambata, 08:00 - 18:00
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="container">
-            <div class="footer-logo">CD TOPMED SRL</div>
-            
-            <div class="footer-contact">
-                <a href="tel:0770508549">0770 508 549</a> | 
-                <a href="mailto:haletomesti@gmail.com">haletomesti@gmail.com</a>
-            </div>
-            
-            <p style="margin-top: 20px; opacity: 0.7;">
-                Tomești, Iași, România<br><br>
-                © 2025 CD TOPMED SRL. Toate drepturile rezervate.
-            </p>
+        <div class="footer-logo">CD TOPMED SRL</div>
+        
+        <div class="footer-contact">
+            <a href="tel:0770508549">0770 508 549</a>
+            <a href="mailto:haletomesti@gmail.com">haletomesti@gmail.com</a>
         </div>
+        
+        <p class="footer-copy">
+            📍 Tomesti, Iasi, Romania<br>
+            © 2025 CD TOPMED SRL. Toate drepturile rezervate.
+        </p>
     </footer>
 
-    <!-- WhatsApp Float -->
-    <a href="https://wa.me/40770508549" class="whatsapp-float" title="Contactează-ne pe WhatsApp">💬</a>
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img src="" alt="Poza marita" id="lightbox-img">
+    </div>
+
+    <script>
+        // Lightbox
+        function openLightbox(src) {
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close on Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeLightbox();
+        });
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
 </body>
 </html>
